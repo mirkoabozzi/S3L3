@@ -5,16 +5,16 @@ console.log(getToDo); //log di verifica form correttamente selezionato
 getToDo.addEventListener("submit", function (event) {
   event.preventDefault(); //evito ricarico pagina
   console.log(event); //log per evento
-  const input = document.getElementById("inputfield"); //creo variante di nome input
-  const wordsToAdd = input.value; // assegno a una variante il contenuto di inpiut
+  const input = document.getElementById("inputfield"); //creo variabile di nome input
+  const wordsToAdd = input.value; // assegno a una variabile il contenuto di inpiut
   console.log(wordsToAdd); // log per leggere cosa ho inserito nel form
 
   const checkList = document.createElement("p"); //creo paragrafo dove poter inserire gli elementi lista
 
-  // funzione testo sbarrato al click
+  // funzione testo sbarrato al click con aggiunta classe per css
 
   checkList.addEventListener("click", function (event) {
-    checkList.classList.add("decoration");
+    checkList.classList.toggle("decoration");
   });
 
   checkList.innerText = wordsToAdd; // parole da aggiungere alla lista
@@ -30,7 +30,7 @@ getToDo.addEventListener("submit", function (event) {
 
   const getList = document.getElementById("list"); //seleziono il div lista dell'html
   getList.appendChild(checkList); //'appendo' la lista creata
-  checkList.appendChild(bottone); //appendo bottone all'elemento
+  checkList.appendChild(bottone); //appendo bottone all'elemento della lista
 
   input.value = ""; //pulisci contenuto form
 });
