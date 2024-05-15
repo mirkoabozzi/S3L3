@@ -11,22 +11,26 @@ getToDo.addEventListener("submit", function (event) {
 
   const checkList = document.createElement("p"); //creo paragrafo dove poter inserire gli elementi lista
 
+  // funzione testo sbarrato al click
+
+  checkList.addEventListener("click", function (event) {
+    checkList.classList.add("decoration");
+  });
+
   checkList.innerText = wordsToAdd; // parole da aggiungere alla lista
 
   const bottone = document.createElement("button"); //creo bottone
   bottone.classList.add("bottonilista"); //aggiungo classe al bottone lista
-  bottone.innerText = "Elimina";
+  bottone.innerText = "Elimina"; //aggiungo nome al bottone lista
+
+  //funzione elimina elemento lista
+  bottone.addEventListener("click", function (event) {
+    checkList.remove();
+  });
 
   const getList = document.getElementById("list"); //seleziono il div lista dell'html
   getList.appendChild(checkList); //'appendo' la lista creata
   checkList.appendChild(bottone); //appendo bottone all'elemento
 
   input.value = ""; //pulisci contenuto form
-
-  //   const listaP = document.querySelectorAll("p"); //Seleziono i p appena creati
-  //   console.log(listaP); //log controllo p
-  //   listaP.addEventListener("click");
 });
-
-// const listaP = document.querySelector("p");
-// console.log(listaP);
